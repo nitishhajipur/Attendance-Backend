@@ -13,7 +13,6 @@ const validateUser = async (req, res) => {
         delete item.password;
         return item;
       });
-      console.log("122.....", _data);
       res.send({ id: data[0]._id });
     } else {
       res.send({
