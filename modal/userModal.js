@@ -10,7 +10,7 @@ const userData = new mongoose.Schema({
     type: String,
   },
   email: {
-    required: true,
+    required: false,
     type: String,
     unique: true,
   },
@@ -20,11 +20,11 @@ const userData = new mongoose.Schema({
     unique: true,
   },
   employeeId:{
-    required:true,
+    required:false,
     type:String,
     unique:true
   },
-  hourlyRate:{
+  hourlyPay:{
     required:true,
     type:String
   },
@@ -32,7 +32,11 @@ const userData = new mongoose.Schema({
     required: true,
     type: String,
   },
-  role: {
+  department: {
+    required: true,
+    type: String,
+  },
+  shift: {
     required: true,
     type: String,
   },

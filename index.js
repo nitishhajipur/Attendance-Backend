@@ -24,7 +24,7 @@ app.use("/api", routes);
 //   console.log("Database Connected");
 // });
 
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3006;
 app.set("port", port);
 
 database.on("error", (error) => {
