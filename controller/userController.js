@@ -1,30 +1,30 @@
 
 const userData = require("../modal/userModal");
 
-const validateUser = async (req, res) => {
-  const request = req.body;
-  try {
-    const data = await userData.find({
-      email: request.email,
-      password: request.password,
-    });
-    if (data.length > 0) {
-      const _data = data.map((item) => {
-        delete item.password;
-        return item;
-      });
-      res.send({ id: data[0]._id });
-    } else {
-      res.send({
-        errorCode: 400,
-        status: "error",
-        message: "Wrong User Id or password",
-      });
-    }
-  } catch (error) {
-    res.send(500).json({ message: error.message });
-  }
-};
+// const validateUser = async (req, res) => {
+//   const request = req.body;
+//   try {
+//     const data = await userData.find({
+//       email: request.email,
+//       password: request.password,
+//     });
+//     if (data.length > 0) {
+//       const _data = data.map((item) => {
+//         delete item.password;
+//         return item;
+//       });
+//       res.send({ id: data[0]._id });
+//     } else {
+//       res.send({
+//         errorCode: 400,
+//         status: "error",
+//         message: "Wrong User Id or password",
+//       });
+//     }
+//   } catch (error) {
+//     res.send(500).json({ message: error.message });
+//   }
+// };
 
 const createUser = async (req, res) => {
   try {
@@ -92,7 +92,7 @@ const deleteUserById = async (req, res) => {
 
 module.exports = {
 //   registerOrganization,
-  validateUser,
+  // validateUser,
   createUser,
   getAllUserDetails,
   updateUserById,

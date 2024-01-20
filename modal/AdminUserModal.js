@@ -4,6 +4,13 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 const adminUserData = new mongoose.Schema({
+  userName: {
+    required: true,
+    type: String,
+    trim:true,
+    lowercase:true,
+    unique:true
+  },
   firstName: {
     required: true,
     type: String,
@@ -38,7 +45,7 @@ const adminUserData = new mongoose.Schema({
   password: {
     required: true,
     type: String,
-    minLength:8,
+    // minLength:8,
     trim:true,
     validate(value){
       if(value.toLowerCase().includes('password')){
@@ -52,7 +59,7 @@ const adminUserData = new mongoose.Schema({
       required:false
     }
   }],
-  timestamps:true
+  // timestamps:true
 });
 const adminuser = mongoose.model("adminuser", adminUserData);
 
