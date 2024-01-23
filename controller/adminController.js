@@ -20,7 +20,7 @@ const RegisterAdmin =async (req,res)=>{
         }
       }
 }
-const validateUser = async (req, res) => {
+const validateAdmin = async (req, res) => {
     const request = req.body;
     try {
       const data = await adminUser.find({
@@ -58,6 +58,6 @@ const validateUser = async (req, res) => {
 
 module.exports={
     RegisterAdmin,
-    validateUser,
+    validateAdmin,
     findAdminById
 }
