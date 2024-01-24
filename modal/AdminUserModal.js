@@ -3,7 +3,7 @@ const validator = require("validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-const adminUserData = new mongoose.Schema({
+const adminData = new mongoose.Schema({
   userName: {
     required: true,
     type: String,
@@ -24,7 +24,6 @@ const adminUserData = new mongoose.Schema({
   email: {
     required: true,
     type: String,
-    unique: true,
     lowercase:true,
     validate(value){
       if(!validator.isEmail(value)){
@@ -36,11 +35,6 @@ const adminUserData = new mongoose.Schema({
     required: true,
     type: Number,
     unique: true,
-  },
-  employeeId:{
-    required:false,
-    type:String,
-    unique:true
   },
   password: {
     required: true,
@@ -61,6 +55,6 @@ const adminUserData = new mongoose.Schema({
   }],
   // timestamps:true
 });
-const adminuser = mongoose.model("adminuser", adminUserData);
+const adminUser = mongoose.model("adminData", adminData);
 
-module.exports = adminuser;
+module.exports = adminUser;

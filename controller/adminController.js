@@ -1,14 +1,15 @@
-const adminUser = require('../modal/AdminUserModal')
+const adminData = require('../modal/AdminUserModal')
 
 const RegisterAdmin =async (req,res)=>{
     try {
         console.log('32..',req)
-        await adminUser.create({ ...req.body });
+        await adminData.create({ ...req.body });
         res.status(200).json({
           message: "User create successfully.use user id for login",
           status: "success",
         });
       } catch (error) {
+        console.log(error)
         if (error.code === 11000) {
           res.status(200).json({
             status: "error",
@@ -23,7 +24,7 @@ const RegisterAdmin =async (req,res)=>{
 const validateAdmin = async (req, res) => {
     const request = req.body;
     try {
-      const data = await adminUser.find({
+      const data = await adminData.find({
         userName: request.userName,
         password: request.password,
       });
@@ -48,7 +49,7 @@ const validateAdmin = async (req, res) => {
   const findAdminById = async (req, res) => {
     const _id = req.params.id;
     try {
-      const data = await adminUser.findById(_id);
+      const data = await adminData.findById(_id);
       delete data.password;
       res.json(data);
     } catch (error) {
