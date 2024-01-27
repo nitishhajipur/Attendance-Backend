@@ -19,14 +19,14 @@ const userData = new mongoose.Schema({
     type: Number,
     unique: true,
   },
-  employeeId:{
-    required:false,
-    type:String,
-    unique:true
+  employeeId: {
+    required: false,
+    type: String,
+    unique: true,
   },
-  hourlyPay:{
-    required:true,
-    type:String
+  hourlyPay: {
+    required: true,
+    type: String,
   },
   password: {
     required: true,
@@ -37,6 +37,10 @@ const userData = new mongoose.Schema({
     type: String,
   },
   shift: {
+    required: true,
+    type: String,
+  },
+  attendanceAction: {
     required: true,
     type: String,
   },
