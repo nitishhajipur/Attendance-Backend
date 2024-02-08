@@ -24,6 +24,8 @@ const adminData = new mongoose.Schema({
   email: {
     required: true,
     type: String,
+    trim:true,
+    unique:true,
     lowercase:true,
     validate(value){
       if(!validator.isEmail(value)){
