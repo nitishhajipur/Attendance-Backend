@@ -9,13 +9,13 @@ const RegisterAdmin =async (req,res)=>{
           status: "success",
         });
       } catch (error) {
-        console.log(error)
+        console.log(error,"13.....")
         if (error.code === 11000) {
-          res.status(200).json({
-            status: "error",
-            message:
-              "User name already exists",
-          });
+          let response ={status:"error",message: `Admin with given ${Object.keys(error?.keyValue)[0]} already registered `}
+          
+          res.status(200).json(
+            response
+          );
         } else {
           res.status(500).json({ message: error.message });
         }
